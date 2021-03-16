@@ -63,7 +63,7 @@ class dlgNew(QtWidgets.QDialog):
         self.ui.cbSex.setVisible(False)
         self.ui.label_genotype.setVisible(False)
         self.ui.Ed_Genotyp.setVisible(False)
-        self.ui.cbSpecies.addItems(['human', 'monkey', 'rat', 'mouse'])
+        self.ui.cbSpecies.addItems(['mouse', 'rat', 'monkey', 'human'])
         self.ui.cbSex.addItems(['M', 'F', 'U'])
         
     def ChooseItem(self):
@@ -136,9 +136,9 @@ class dlgFields(QtWidgets.QMainWindow):
         self.ui.dateEdit.dateChanged.connect(self.NwID)
         self.ui.spinSessnr.valueChanged.connect(self.NwSessnr)
 
-        self.ui.btnSave.clicked.connect(self.Save)
-        self.ui.buttonBox.accepted.connect(self.Done)
-        self.ui.buttonBox.rejected.connect(self.Cancelled)
+        #self.ui.btnSave.clicked.connect(self.Save)
+        self.ui.buttonBox.accepted.connect(self.Save)
+        self.ui.buttonBox.rejected.connect(self.Done)
         self.NwID()
             
     def fillProject(self):
@@ -471,10 +471,10 @@ class dlgFields(QtWidgets.QMainWindow):
         self.mydb.close()
         self.close()
          
-    def Cancelled(self):
-        self.Ret = 1
-        self.mydb.close()
-        self.close()
+##    def Cancelled(self):
+##        self.Ret = 1
+##        self.mydb.close()
+##        self.close()
         
 #w.mydb.reopen()
 #w.mydb.update(sql)

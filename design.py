@@ -371,12 +371,6 @@ class Ui_GetdbFields(object):
         self.horizontalLayout_4.addWidget(self.spinSessnr)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem1)
-        self.btnSave = QtWidgets.QPushButton(self.layoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btnSave.setFont(font)
-        self.btnSave.setObjectName("btnSave")
-        self.horizontalLayout_4.addWidget(self.btnSave)
         self.buttonBox = QtWidgets.QDialogButtonBox(self.layoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -386,7 +380,7 @@ class Ui_GetdbFields(object):
         font = QtGui.QFont()
         font.setPointSize(11)
         self.buttonBox.setFont(font)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Close|QtWidgets.QDialogButtonBox.Save)
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.horizontalLayout_4.addWidget(self.buttonBox)
@@ -430,7 +424,6 @@ class Ui_GetdbFields(object):
         self.label_Date.setText(_translate("GetdbFields", "Date : "))
         self.dateEdit.setDisplayFormat(_translate("GetdbFields", "M-d-yyyy"))
         self.label_3.setText(_translate("GetdbFields", "Session nr."))
-        self.btnSave.setText(_translate("GetdbFields", "Save"))
 
 
 if __name__ == "__main__":
