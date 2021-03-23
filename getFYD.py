@@ -22,13 +22,13 @@ app.exec_()
 
 
 # if w.Ret == 0 :  #accepted : btn ok/cancelled
-    Fields = w.Fields
-    dir_path = w.dirPath
-    Sessnr = w.Sessnr
+Fields = w.Fields
+dir_path = w.dirPath
+Sessnr = w.Sessnr
 #   ID = w.ID
 
-    store = { "Fields" : Fields, "dirPath" : dir_path, "Sessnr" : Sessnr }
-    FP = open('FydStore.json', 'w')
-    json.dump(store, FP)
-    FP.close()
+store = { "Fields" : Fields, "dirPath" : dir_path, "Sessnr" : Sessnr }
+FP = open('FydStore.json', 'w')
+json.dump(store, FP)
+FP.close()
     #print(json.dumps(flds))
