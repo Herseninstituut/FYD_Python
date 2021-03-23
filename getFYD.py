@@ -21,7 +21,7 @@ w.show()
 app.exec_()
 
 
-if w.Ret == 0 :  #accepted : btn ok/cancelled
+# if w.Ret == 0 :  #accepted : btn ok/cancelled
     Fields = w.Fields
     dir_path = w.dirPath
     Sessnr = w.Sessnr

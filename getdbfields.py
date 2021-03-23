@@ -638,7 +638,7 @@ class dlgFields(QtWidgets.QMainWindow):
             elif len(strRes) > 0 :
                 print('Adding to table setups')
                 try:
-                    sql = 'INSERT INTO setups( setupid, shortdescr ) VALUES ( "' + strRes + '", ' + strDescr + '")'
+                    sql = 'INSERT INTO setups(setupid, shortdescr ) VALUES ("' + strRes + '", "' + strDescr + '")'
                     self.mydb.update(sql)
 
                     self.Setuplist.append(strRes)                       
@@ -673,7 +673,7 @@ class dlgFields(QtWidgets.QMainWindow):
                 if strRes not in Allist:
                     print('Adding to table stimulus')
                     try:
-                        sql = 'INSERT INTO stimulus( stimulusid, shortdescr ) VALUES ( "' + strRes + '", ' + strDescr + '" )'
+                        sql = 'INSERT INTO stimulus( stimulusid, shortdescr ) VALUES ( "' + strRes + '", "' + strDescr + '" )'
                         self.mydb.update(sql)
                         
                     except  mysql.connector.Error as e:
