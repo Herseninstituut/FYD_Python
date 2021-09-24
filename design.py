@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'design.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_GetdbFields(object):
     def setupUi(self, GetdbFields):
@@ -19,7 +21,7 @@ class Ui_GetdbFields(object):
         self.centralwidget = QtWidgets.QWidget(GetdbFields)
         self.centralwidget.setObjectName("centralwidget")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 0, 568, 461))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 0, 569, 461))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
@@ -338,6 +340,7 @@ class Ui_GetdbFields(object):
         self.label_Date.setObjectName("label_Date")
         self.horizontalLayout_4.addWidget(self.label_Date)
         self.dateEdit = QtWidgets.QDateEdit(self.layoutWidget)
+        self.dateEdit.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -433,4 +436,3 @@ if __name__ == "__main__":
     ui.setupUi(GetdbFields)
     GetdbFields.show()
     sys.exit(app.exec_())
-

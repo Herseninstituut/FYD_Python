@@ -66,7 +66,15 @@ class dlgNew(QtWidgets.QDialog):
         self.ui.Ed_Genotyp.setVisible(False)
         self.ui.cbSpecies.addItems(['mouse', 'rat', 'monkey', 'human'])
         self.ui.cbSex.addItems(['M', 'F', 'U'])
+        self.ui.label_Age.setVisible(False)
+        self.ui.Ed_Age.setVisible(False)
+        self.bclose = False
 
+    def closeEvent(self, evnt):
+        if self.bclose:
+            super(dlgNew, self).closeEvent(evnt)
+        else:
+            evnt.ignore()
         
     def ChooseItem(self):
         self.ui.Ed_Id.setText(self.ui.cbAll.currentText())
@@ -74,6 +82,7 @@ class dlgNew(QtWidgets.QDialog):
     def Pushed(self, Btn_selected):
         self.Ret = Btn_selected;
         if not (self.Ret == 0 and len(self.ui.Ed_Id.text()) == 0) :
+            self.bclose = True
             self.close()
 
     def CheckNw(self):
@@ -501,7 +510,7 @@ class dlgFields(QtWidgets.QMainWindow):
         dlg.exec()
         
         strRes = dlg.ui.Ed_Id.text()
-        strDescr = dlg.ui.Ed_Descr.text()
+        strDescr = dlg.ui.Ed_Descr.toPlainText()
         
         if dlg.Ret == 0 : #accepted , 1 = canceled
             if strRes in self.Projects:
@@ -529,7 +538,7 @@ class dlgFields(QtWidgets.QMainWindow):
         dlg.show()
         dlg.exec()
         strRes = dlg.ui.Ed_Id.text()
-        strDescr = dlg.ui.Ed_Descr.text()
+        strDescr = dlg.ui.Ed_Descr.toPlainText()
         
         if dlg.Ret == 0 : #accepted , 1 = canceled
             if strRes in self.Datasets:
@@ -563,7 +572,7 @@ class dlgFields(QtWidgets.QMainWindow):
         
         if dlg.Ret == 0 : #accepted , 1 = canceled
             strRes = dlg.ui.Ed_Id.text()
-            strDescr = dlg.ui.Ed_Descr.text()
+            strDescr = dlg.ui.Ed_Descr.toPlainText()
             
             if strRes in self.Conditionlist :
                 print("Condition already exists!!")
@@ -597,15 +606,18 @@ class dlgFields(QtWidgets.QMainWindow):
         dlg.ui.cbSex.setVisible(True)
         dlg.ui.label_genotype.setVisible(True)
         dlg.ui.Ed_Genotyp.setVisible(True)
+        dlg.ui.label_Age.setVisible(True)
+        dlg.ui.Ed_Age.setVisible(True)
         dlg.show()
         dlg.exec()
         
         if dlg.Ret == 0 : #accepted , 1 = canceled
             strRes = dlg.ui.Ed_Id.text()
-            strDescr = dlg.ui.Ed_Descr.text()
+            strDescr = dlg.ui.Ed_Descr.toPlainText()
             strSpecies = dlg.ui.cbSpecies.currentText()
             strSex = dlg.ui.cbSex.currentText()
             strGenotype = dlg.ui.Ed_Genotyp.text()
+            strAge = dlg.ui.Ed_Age.text() 
             
             if strRes in self.Subjectlist:
                 print('Subject already exists, choose different name!')
@@ -614,8 +626,8 @@ class dlgFields(QtWidgets.QMainWindow):
                 if strRes not in Allist:
                     print('Adding to table subjects')
                     try:
-                        sql = 'INSERT INTO subjects( subjectid, shortdescr, species, sex, genotype ) VALUES ( "' + strRes \
-                              + '", "' + strDescr + '", "' + strSpecies + '", "' + strSex + '", "' + strGenotype + '")'
+                        sql = 'INSERT INTO subjects( subjectid, shortdescr, species, sex, genotype, age ) VALUES ( "' + strRes \
+                              + '", "' + strDescr + '", "' + strSpecies + '", "' + strSex + '", "' + strGenotype + '", "' + strAge + '")'
                         self.mydb.update(sql)
                         
                     except mysql.connector.Error as e:
@@ -641,7 +653,7 @@ class dlgFields(QtWidgets.QMainWindow):
           
         if dlg.Ret == 0 : #accepted , 1 = canceled
             strRes = dlg.ui.Ed_Id.text()
-            strDescr = dlg.ui.Ed_Descr.text()
+            strDescr = dlg.ui.Ed_Descr.toPlainText()
             
             if strRes in self.Setuplist:
                 print("setup already exists!!")
@@ -675,7 +687,7 @@ class dlgFields(QtWidgets.QMainWindow):
         
         if dlg.Ret == 0 : #accepted , 1 = canceled
             strRes = dlg.ui.Ed_Id.text()
-            strDescr = dlg.ui.Ed_Descr.text()
+            strDescr = dlg.ui.Ed_Descr.toPlainText()
             
             if strRes in self.Stimuluslist :
                 print("Stimulus already exists!!")

@@ -27,7 +27,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>568</width>
+      <width>569</width>
       <height>461</height>
      </rect>
     </property>
@@ -556,6 +556,9 @@
        </item>
        <item>
         <widget class="QDateEdit" name="dateEdit">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
