@@ -2,13 +2,11 @@
 
 # Form implementation generated from reading ui file 'design.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.3
+# Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_GetdbFields(object):
     def setupUi(self, GetdbFields):
@@ -359,6 +357,7 @@ class Ui_GetdbFields(object):
         self.label_3.setObjectName("label_3")
         self.horizontalLayout_4.addWidget(self.label_3)
         self.spinSessnr = QtWidgets.QSpinBox(self.layoutWidget)
+        self.spinSessnr.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -434,3 +433,4 @@ if __name__ == "__main__":
     ui.setupUi(GetdbFields)
     GetdbFields.show()
     sys.exit(app.exec_())
+

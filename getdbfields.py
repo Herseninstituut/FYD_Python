@@ -30,6 +30,7 @@ class DbConn(object):
 
     def connected(self):
         return self.db.is_connected()
+
     
     def close(self): 
         self.db.close() 
@@ -65,6 +66,7 @@ class dlgNew(QtWidgets.QDialog):
         self.ui.Ed_Genotyp.setVisible(False)
         self.ui.cbSpecies.addItems(['mouse', 'rat', 'monkey', 'human'])
         self.ui.cbSex.addItems(['M', 'F', 'U'])
+
         
     def ChooseItem(self):
         self.ui.Ed_Id.setText(self.ui.cbAll.currentText())
@@ -114,6 +116,7 @@ class dlgFields(QtWidgets.QMainWindow):
         self.Stimulus = ''
         self.Investigator = ''
         self.bOnce = True
+        self.bclose = False
         self.ui.label_Database.setText(self.ui.label_Database.text() + dbc['Database'])
         self.ui.spinSessnr.setValue(self.Sessnr)
         #self.DT = datetime.datetime.now()
@@ -456,7 +459,7 @@ class dlgFields(QtWidgets.QMainWindow):
     def Done(self):  
         self.Fields["project"] = self.Project
         self.Fields["dataset"] = self.Dataset
-        self.Fields["condition"]   = self.Condition
+        self.Fields["condition"]  = self.Condition
         self.Fields["subject"] = self.Subject
         self.Fields["stimulus"] = self.Stimulus
         self.Fields["setup"]    = self.Setup
@@ -468,6 +471,7 @@ class dlgFields(QtWidgets.QMainWindow):
         self.ID = self.ui.ed_ID.text()
         self.Sessnr = self.ui.spinSessnr.value()
         self.Ret = 0
+        self.bclose = True
         self.mydb.close()
         self.close()
          
@@ -478,6 +482,13 @@ class dlgFields(QtWidgets.QMainWindow):
         
 #w.mydb.reopen()
 #w.mydb.update(sql)
+
+    def closeEvent(self, evnt):
+        if self.bclose:
+            super(dlgFields, self).closeEvent(evnt)
+        else:
+            evnt.ignore()
+
     def Reconnect(self):
         if self.mydb.connected() == False :
            self.mydb.reopen() 
@@ -722,9 +733,11 @@ class dlgFields(QtWidgets.QMainWindow):
 
     def NwID(self):
         strdate = self.ui.dateEdit.date().toString("yyyy-MM-dd");
-        sessnr =  str(self.ui.spinSessnr.value()).zfill(3);
-        self.ui.ed_ID.setText( self.Subject + "_" + strdate + "_" + sessnr )
-        self.ui.ed_Log.setText( self.Subject + "_" + strdate + "_" + sessnr + '_log')
+        # sessnr =  str(self.ui.spinSessnr.value()).zfill(3);
+        # self.ui.ed_ID.setText( self.Subject + "_" + strdate + "_" + sessnr )
+        # self.ui.ed_Log.setText( self.Subject + "_" + strdate + "_" + sessnr + '_log')
+        self.ui.ed_ID.setText( self.Dataset + self.Subject )
+        self.ui.ed_Log.setText( self.Dataset + self.Subject + '_log')
         # print(strdate)
         
 #def main():
