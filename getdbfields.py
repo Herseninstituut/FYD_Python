@@ -745,11 +745,9 @@ class dlgFields(QtWidgets.QMainWindow):
 
     def NwID(self):
         strdate = self.ui.dateEdit.date().toString("yyyy-MM-dd");
-        # sessnr =  str(self.ui.spinSessnr.value()).zfill(3);
-        # self.ui.ed_ID.setText( self.Subject + "_" + strdate + "_" + sessnr )
-        # self.ui.ed_Log.setText( self.Subject + "_" + strdate + "_" + sessnr + '_log')
-        self.ui.ed_ID.setText( self.Dataset + self.Subject )
-        self.ui.ed_Log.setText( self.Dataset + self.Subject + '_log')
+        sessnr =  str(self.ui.spinSessnr.value()).zfill(3);
+        self.ui.ed_ID.setText( self.Subject + "_" + strdate + "_" + sessnr  )
+        self.ui.ed_Log.setText( self.Subject + "_" + strdate + "_" + sessnr  + '_log')
         # print(strdate)
         
 #def main():

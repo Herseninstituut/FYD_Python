@@ -557,7 +557,7 @@
        <item>
         <widget class="QDateEdit" name="dateEdit">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -603,7 +603,7 @@
        <item>
         <widget class="QSpinBox" name="spinSessnr">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
