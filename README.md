@@ -1,4 +1,5 @@
 # FYD_Python
+[![DOI](https://zenodo.org/badge/342858223.svg)](https://zenodo.org/badge/latestdoi/342858223)  
 Python scripts to access Follow Your Data (FYD) database
 
 
