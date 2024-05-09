@@ -460,7 +460,8 @@ class dlgFields(QtWidgets.QMainWindow):
         self.ID = self.ui.ed_ID.text()
 
         self.dirPath = QtWidgets.QFileDialog.getExistingDirectory(self,"Choose Directory", self.dirPath )
-        strpath = self.dirPath+'\\'+self.ID+'_session.json'
+        strpath = self.dirPath+'/'+self.ID+'_session.json'
+        print('saved to : ' + strpath)
         FP = open(strpath, 'w')
         json.dump(self.Fields, FP)
         FP.close()
