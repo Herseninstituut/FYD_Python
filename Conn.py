@@ -5,7 +5,7 @@ Created on Wed May 29 15:37:27 2019
 @author: togt
 """
 
-dbc = {'host' : 'nhi-fyd.nin.knaw.nl',
+dbc = {'host' : 'fyd2.nin.nl',
        'user' : 'TM_user',
        'passw' : 'NExECh07pWp93bYg',
-       'Database' : 'TM' }
+       'Database' : 'examplelab' }
