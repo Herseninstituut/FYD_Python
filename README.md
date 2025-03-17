@@ -12,7 +12,7 @@ Or use jupyter notebook and open the file:
 
 You need to install mysql-connector-python; e.g conda install mysql-connector-python
 
-Change conn.py to appropriate values for host, username, password and database. 
+Change **conn.py** to appropriate values for host, username, password and database. 
 
 Both import getdbfields.py to open the dialog for selecting a value for each database field in the database (MYSQL) of your lab. 
 
@@ -33,3 +33,10 @@ cmd > pyuic5.bat -x design.ui -o design.py
 Now add callbacks and functionality to the window controls. I've done this in getdbfields.py where the Qt generated files are imported: design.py and NWdlg.py
 
 In getdbfields three classes are defined; 1. a mysql connection class, 2. a New dialog class, and 3. the main dlgfields class. 
+
+
+### Using Datajoint with Follow Your Data 
+Install data joint : conda install -c conda-forge datajoint
+
+run jupyter notebook in anaconda prompt.
+Open  examplelab.ipynb

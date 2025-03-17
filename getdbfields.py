@@ -458,6 +458,11 @@ class dlgFields(QtWidgets.QMainWindow):
         self.Fields["logfile"] = self.ui.ed_Log.text()
         self.Fields["version"] = '1.0'
         self.ID = self.ui.ed_ID.text()
+        sql = 'SELECT idx FROM sessions WHERE sessionid = "' + self.ID + '";'
+        reclst = self.mydb.query(sql) 
+        if ( not len(reclst) == 0 ):
+            res = QMessageBox.question(self,"ERROR:Session already exists: ", "Please enter a different session ID!!", QMessageBox.Ok)  
+            return;
 
         self.dirPath = QtWidgets.QFileDialog.getExistingDirectory(self,"Choose Directory", self.dirPath )
         strpath = self.dirPath+'\\'+self.ID+'_session.json'

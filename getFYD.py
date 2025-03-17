@@ -27,6 +27,7 @@ dir_path = w.dirPath
 Sessnr = w.Sessnr
 #   ID = w.ID
 
+# The FYDStor is used to cache the contents of the json file
 store = { "Fields" : Fields, "dirPath" : dir_path, "Sessnr" : Sessnr }
 FP = open('FydStore.json', 'w')
 json.dump(store, FP)
