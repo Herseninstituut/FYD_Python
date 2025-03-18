@@ -14,7 +14,7 @@ class Ui_GetdbFields(object):
     def setupUi(self, GetdbFields):
         GetdbFields.setObjectName("GetdbFields")
         GetdbFields.setWindowModality(QtCore.Qt.WindowModal)
-        GetdbFields.resize(588, 473)
+        GetdbFields.resize(600, 480)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("fydfav.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GetdbFields.setWindowIcon(icon)
