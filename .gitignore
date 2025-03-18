@@ -2,6 +2,5 @@
 *.pyc
 .ipynb_checkpoints/
 __pycache__/
-FydStore.json
 *.json
 FydStore.json
